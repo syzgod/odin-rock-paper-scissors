@@ -23,21 +23,30 @@ let getComputerChoice = () => {
 getComputerChoice();
 console.log(computerSelection);
 
-let playTheGame = (playerSelection, computerSelection) => {
+let playRound = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) {
-    console.log("Tie! You chose the same!");
+    return "Tie! You chose the same!";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    console.log("Computer won! Paper wrapped rock!");
+    return "Computer won! Paper wrapped rock!";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    console.log("Player won! Scissors cut paper!");
+    return "Player won! Scissors cut paper!";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    console.log("Player won! Paper wrapped rock!");
+    return "Player won! Paper wrapped rock!";
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    console.log("Computer won! Rock broke scissors!");
+    return "Computer won! Rock broke scissors!";
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    console.log("Player won! Rock broke scissors!");
+    return "Player won! Rock broke scissors!";
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    console.log("Computer won! Scissors cut paper!");
+    return "Computer won! Scissors cut paper!";
   }
 };
-playTheGame(playerSelection, computerSelection);
+console.log(playRound(playerSelection, computerSelection));
+
+let game = () => {
+  let playerScore = 0;
+  let computerScore = 0;
+
+  for (let i = 0; i <= 5; i++) {
+    playRound(playerSelection, computerSelection);
+  }
+};
