@@ -79,3 +79,4 @@ game();
 
 // TODO: Add check for wrong prompt / fix check
 // TODO: Make it play until 5 win
+// TODO: Add some graphic interface
