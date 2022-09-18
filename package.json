@@ -1,0 +1,14 @@
+{
+  "name": "odin-rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./styles.css -o ./src/public.css"
+  },
+  "author": "Viktor Berczeli",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
