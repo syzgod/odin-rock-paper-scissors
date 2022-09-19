@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-css": "tailwindcss -i ../src/input.css -o ../dist/output.css"
+    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css"
   },
   "author": "Viktor Berczeli",
   "license": "ISC",

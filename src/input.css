@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
+.btn {
+  @apply flex w-24 flex-col items-center rounded-xl border-2 border-red-300 bg-skin-button-accent p-2 shadow-md shadow-zinc-800 hover:bg-skin-button-accent-hover hover:text-skin-base;
+}
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-text-base: #ffffff;
+    --color-text-muted: #a49393;
+    --color-text-inverted: #eed6d3;
+    --color-fill: #67595e;
+    --color-button-accent: #e8b4b8;
+    --color-button-accent-hover: #f994b8;
+  }
+}
