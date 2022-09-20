@@ -1,6 +1,34 @@
 const rockBtn = document.querySelector(".rock-btn");
 const paperBtn = document.querySelector(".paper-btn");
-const scissorsBtn = document.querySelector("scissors-btn");
+const scissorsBtn = document.querySelector(".scissors-btn");
+const againBtn = document.querySelector(".again-btn");
+const playerNum = document.querySelector(".player-score");
+const computerNum = document.querySelector(".computer-score");
+const message = document.querySelector(".message");
+
+rockBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  playerSelection = "rock";
+  console.log(playerSelection);
+  getComputerChoice();
+  playRound(playerSelection, computerSelection);
+});
+
+paperBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  playerSelection = "paper";
+  console.log(playerSelection);
+  getComputerChoice();
+  playRound(playerSelection, computerSelection);
+});
+
+scissorsBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  playerSelection = "scissors";
+  console.log(playerSelection);
+  getComputerChoice();
+  playRound(playerSelection, computerSelection);
+});
 
 let computerSelection = "";
 let playerSelection = "";
@@ -23,64 +51,46 @@ const getComputerChoice = () => {
 
 const playRound = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) {
-    return "Tie! You chose the same!";
+    message.innerText = "Tie! You chose the same!";
+    checkWinner();
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     computerScore++;
-    return "Computer won! Paper wrapped rock!";
+    computerNum.innerText = computerScore;
+    message.innerText = "Computer won! Paper wrapped rock!";
+    checkWinner();
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     computerScore++;
-    return "Computer won! Rock broke scissors!";
+    computerNum.innerText = computerScore;
+    message.innerText = "Computer won! Rock broke scissors!";
+    checkWinner();
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     computerScore++;
-    return "Computer won! Scissors cut paper!";
+    computerNum.innerText = computerScore;
+    message.innerText = "Computer won! Scissors cut paper!";
+    checkWinner();
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     playerScore++;
-    return "Player won! Scissors cut paper!";
+    message.innerText = "Player won! Scissors cut paper!";
+    playerNum.innerText = playerScore;
+    checkWinner();
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     playerScore++;
-    return "Player won! Paper wrapped rock!";
+    message.innerText = "Player won! Paper wrapped rock!";
+    playerNum.innerText = playerScore;
+    checkWinner();
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     playerScore++;
-    return "Player won! Rock broke scissors!";
+    message.innerText = "Player won! Rock broke scissors!";
+    playerNum.innerText = playerScore;
+    checkWinner();
   }
 };
 
-// const game = () => {
-//   for (let i = 0; i < 5; i++) {
-//     playerSelection = prompt(
-//       "Please select one: rock, paper, scissors",
-//       ""
-//     ).toLowerCase();
-//     if (
-//       playerSelection !== "rock" &&
-//       playerSelection !== "paper" &&
-//       playerSelection !== "scissors"
-//     ) {
-//       alert("Please select only from 'rock', 'paper', 'scissors' next time.");
-//       continue;
-//     }
-//     getComputerChoice();
-//     console.log(
-//       playRound(playerSelection, computerSelection),
-//       `(${playerSelection} <--> ${computerSelection})`
-//     );
-//   }
-//   console.log(`Scores after 5 rounds:
-//    Player: ${playerScore}
-//    Computer: ${computerScore}`);
-//   if (playerScore === computerScore) {
-//     console.log("The game is ended with TIE!");
-//   } else if (playerScore > computerScore) {
-//     console.log("You won!");
-//     return "You won!";
-//   } else {
-//     console.log("Computer won!");
-//     return "Computer won!";
-//   }
-// };
-//
-// game();
-
-// TODO: Add check for wrong prompt / fix check
-// TODO: Make it play until 5 win
-// TODO: Add some graphic interface
+const checkWinner = () => {
+  if (playerScore === 5 && playerScore > computerScore) {
+    message.innerText = "Player won! Hurray!";
+  }
+  if (computerScore === 5 && computerScore > playerScore) {
+    message.innerText = "Computer won! Computers are evolving!";
+  }
+};

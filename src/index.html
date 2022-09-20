@@ -5,25 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../dist/output.css" rel="stylesheet" />
-    <script src="../index.js"></script>
+    <script src="../index.js" defer></script>
     <title>Rock Paper Scissors</title>
   </head>
   <body>
     <div class="content-wrapper flex">
       <div class="main-container h-screen w-screen justify-center gap-2 items-center flex bg-skin-fill flex-col">
-        <div class="scores-display">
-          <div>Player score:</div>
-          <div>Compter score:</div>
+        <div class="scores-display p-3 shadow-2xl flex flex-col justify-center items-center">
+          <div>Player score: <span class="player-score">0</span></div>
+          <div>Computer score: <span class="computer-score">0</span></div>
+          <br>
+          <div>Pick one:</div>
         </div>
         <div class="button-wrapper flex gap-2">
-          <button class="btn">
+          <button class="rock-btn btn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
             </svg>
           Rock
           </button>
           </button>
-          <button class="btn">
+          <button class="paper-btn btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -40,7 +42,7 @@
             </svg>
             Paper
           </button>
-          <button class="btn">
+          <button class="scissors-btn btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -58,6 +60,8 @@
             Scissors
           </button>
         </div>
+       <button class="again-btn btn">Again?</button>
+       <div class="message"></div>
       </div>
     </div>
   </body>
